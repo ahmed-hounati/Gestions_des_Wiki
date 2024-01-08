@@ -5,7 +5,7 @@ class Home extends Controller
 
     public function __construct()
     {
-        $this->currentModel = $this->model('Categories');
+        $this->currentModel = $this->model('Homes');
     }
 
     public function index()

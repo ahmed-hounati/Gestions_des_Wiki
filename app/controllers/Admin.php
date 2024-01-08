@@ -31,7 +31,7 @@ class Admin extends Controller
 
             if (!empty($data['category_name'])) {
                 if ($this->currentModel->addCategories($data)) {
-                    redirect('admin');
+                    redirect('admin/dashboard');
                 } else {
                     die('Something wrong');
                 }
@@ -47,6 +47,31 @@ class Admin extends Controller
         }
     }
 
+    public function update($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $data = [
+                'category_id' => $id,
+                'category_name' => trim($_POST['category_name']),
+            ];
+
+
+            if (!empty($data['category_name'])) {
+                $this->currentModel->updateCategorie($data);
+                redirect('admin/dashboard');
+            }
+        } else {
+            $category = $this->currentModel->getCategoryById($id);
+
+            $data = [
+                'category_id' => $category->category_id,
+                'category_name' => $category->category_name,
+            ];
+
+            $this->view('admin/update', $data);
+        }
+    }
 
 
 }

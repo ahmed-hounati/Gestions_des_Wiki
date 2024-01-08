@@ -17,7 +17,7 @@
                 <a href="#" class="hover:text-gray-400">Home</a>
                 <a href="#" class="hover:text-gray-400">Categories</a>
                 <a href="#" class="hover:text-gray-400">Wikis</a>
-                <a href="#" class="hover:text-gray-400">Logout</a>
+                <a href="<?php echo URLROOT; ?>/users/logout" class="hover:text-gray-400">Logout</a>
             </div>
         </div>
     </div>
