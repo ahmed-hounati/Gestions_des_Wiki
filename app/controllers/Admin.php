@@ -73,5 +73,23 @@ class Admin extends Controller
         }
     }
 
+    public function delete($id)
+    {
+        if (!empty($id)) {
+            $this->currentModel->deleteCategory($id);
+            redirect('admin/dashboard');
+        } else {
+            redirect('admin/dashboard');
+        }
+    }
+
+    public function wikies()
+    {
+        $wikies = $this->currentModel->getWikies();
+        $data = [
+            'wikies' => $wikies
+        ];
+        $this->view('admin/wikies', $data);
+    }
 
 }

@@ -40,4 +40,18 @@ class Admins
         return $category;
     }
 
+    public function deleteCategory($id)
+    {
+        $this->db->query('DELETE FROM categories WHERE category_id = :category_id');
+        $this->db->bind(':category_id', $id);
+        $this->db->execute();
+    }
+
+    public function getWikies()
+    {
+        $this->db->query('SELECT * FROM wikis');
+        $wikies = $this->db->fetchAll();
+        return $wikies;
+    }
+
 }

@@ -149,16 +149,17 @@ class Users extends Controller
 
     public function createUserSession($user)
     {
+        $_SESSION['user_id'] = $user->user_id;
         $_SESSION['email'] = $user->email;
         $_SESSION['role'] = $user->role;
 
-        // Redirect based on user role
         $redirectUrl = ($_SESSION['role'] === 'admin') ? 'admin/dashboard' : 'author/dashboard';
         redirect($redirectUrl);
     }
 
     public function logout()
     {
+        unset($_SESSION['user_id']);
         unset($_SESSION['email']);
         session_destroy();
         redirect('users/login');

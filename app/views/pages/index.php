@@ -26,9 +26,7 @@
         <div class="flex items-center">
             <input type="search" name="search" placeholder="Search"
                 class="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none w-full">
-            <button type="submit" class="bg-blue-500 text-white py-2 px-4 ml-2 rounded hover:bg-blue-600">
-                Search
-            </button>
+            <button class="bg-blue-500 text-white py-2 px-4 ml-2 rounded hover:bg-blue-600">Search</button>
         </div>
     </div>
 
