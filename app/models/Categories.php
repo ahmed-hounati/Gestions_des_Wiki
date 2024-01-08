@@ -14,9 +14,10 @@ class Categories
         return $row;
     }
 
-    public function getWikies()
+    public function getWikies($category_id)
     {
-        $this->db->query('SELECT * FROM wikis');
+        $this->db->query('SELECT * FROM wikis WHERE category_id = :category_id');
+        $this->db->bind(':category_id', $category_id);
         $row = $this->db->fetchAll();
         return $row;
     }

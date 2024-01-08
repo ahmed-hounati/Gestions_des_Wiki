@@ -24,7 +24,7 @@
 
     <?php foreach ($data['categories'] as $categorie): ?>
         <div class="container mx-auto mt-8 flex flex-wrap gap-4">
-            <a href="#" class="bg-gray-200 p-4 rounded shadow-md w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mx-2">
+            <a href="<?php echo URLROOT; ?>/pages/" class="bg-gray-200 p-4 rounded shadow-md w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mx-2">
                 <h2 class="text-lg font-semibold mb-2">
                     <?php echo $categorie->category_name; ?>
                 </h2>

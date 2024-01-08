@@ -18,4 +18,21 @@ class Admins
             return false;
     }
 
+    public function getCategories()
+    {
+        $this->db->query('SELECT * FROM categories');
+        $row = $this->db->fetchAll();
+        return $row;
+    }
+
+    public function addCategories($data)
+    {
+        $this->db->query('INSERT INTO categories (category_name) VALUE (:category_name)');
+        $this->db->bind(':category_name', $data['category_name']);
+        if ($this->db->execute()) {
+            return true;
+        } else
+            return false;
+    }
+
 }

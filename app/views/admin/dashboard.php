@@ -1,25 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require APPROOT . '/views/inc/header.php'; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-    <title>Admin Dashboard</title>
-</head>
+<a href="<?php echo URLROOT; ?>/admin/add" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">add</a>
 
-<body class="bg-gray-200">
-
-    <div class="container mx-auto mt-8">
-        <div class="bg-white p-8 rounded shadow-md">
-            <h1 class="text-2xl font-semibold mb-4">Admin Dashboard</h1>
-
-            <div class="mt-8 flex flex-col md:flex-row items-center justify-between">
-                <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded mb-2 md:mb-0 md:mr-4">Create New Wiki</a>
-                <a href="#" class="bg-red-500 text-white px-4 py-2 rounded">Logout</a>
+<div class="container mx-auto mt-8 flex flex-wrap gap-4">
+    <?php foreach ($data['categories'] as $category): ?>
+        <div class="bg-gray-200 p-4 rounded shadow-md w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mx-2">
+            <h2 class="text-lg font-semibold mb-2">
+                <?php echo $category->category_name; ?>
+            </h2>
+            <div class="flex justify-between mt-4">
+                <a href="<?php echo URLROOT; ?>/admin/update/<?php echo $category->id; ?>"
+                    class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Update</a>
+                <a href="<?php echo URLROOT; ?>/admin/delete/<?php echo $category->id; ?>"
+                    class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">Delete</a>
             </div>
         </div>
-    </div>
+    <?php endforeach; ?>
+</div>
 
 </body>
 
