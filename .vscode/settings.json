@@ -1,6 +1,13 @@
 {
     "cSpell.words": [
+        "addtag",
+        "addwiki",
         "Categorie",
+        "deletetag",
+        "deletewiki",
+        "SPECIALCHARS",
+        "updatetag",
+        "updatewiki",
         "wikies"
     ]
 }

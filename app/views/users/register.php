@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <div class="bg-white p-8 rounded-lg mt-28 shadow-md w-full md:w-96 mx-auto">
+    <div class="bg-white p-8 rounded-lg mt-28 shadow-md w-80 md:w-96 mx-auto ">
         <h1 class="text-2xl font-semibold mb-4">Register</h1>
         <form action="<?php echo URLROOT; ?>/users/register" method="post">
             <div class="mb-4">

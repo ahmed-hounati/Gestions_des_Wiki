@@ -54,4 +54,44 @@ class Admins
         return $wikies;
     }
 
+    public function getTags()
+    {
+        $this->db->query('SELECT * FROM tags');
+        $tags = $this->db->fetchAll();
+        return $tags;
+    }
+
+    public function addTag($data)
+    {
+        $this->db->query('INSERT INTO tags (name_tag) VALUE (:name_tag)');
+        $this->db->bind(':name_tag', $data['name_tag']);
+        if ($this->db->execute()) {
+            return true;
+        } else
+            return false;
+    }
+
+    public function getTagById($id)
+    {
+        $this->db->query('SELECT * FROM tags WHERE id_tag = :id');
+        $this->db->bind(':id', $id);
+        $tags = $this->db->fetch();
+        return $tags;
+    }
+
+    public function updateTag($data)
+    {
+        $this->db->query('UPDATE tags SET name_tag = :name_tag WHERE id_tag = :id');
+        $this->db->bind(':name_tag', $data['name_tag']);
+        $this->db->bind(':id', $data['id_tag']);
+        $this->db->execute();
+    }
+
+    public function deleteTag($id)
+    {
+        $this->db->query('DELETE FROM tags WHERE id_tag = :id');
+        $this->db->bind(':id', $id);
+        $this->db->execute();
+    }
+
 }

@@ -34,7 +34,7 @@
 
     <div class="container mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <?php foreach ($data['wikies'] as $wiki): ?>
-            <div class="bg-white p-4 rounded-lg shadow-md">
+            <div class="bg-white p-4 rounded shadow-md w-full">
                 <h2 class="text-lg font-semibold mb-2">
                     <?php echo $wiki->title; ?>
                 </h2>

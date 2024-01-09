@@ -92,4 +92,73 @@ class Admin extends Controller
         $this->view('admin/wikies', $data);
     }
 
+    public function tags()
+    {
+        $tags = $this->currentModel->getTags();
+        $data = [
+            'tags' => $tags,
+        ];
+        $this->view('admin/tags', $data);
+    }
+
+    public function addtag()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $data = [
+                'name_tag' => trim($_POST['name_tag'])
+            ];
+
+            if (!empty($data['name_tag'])) {
+                if ($this->currentModel->addTag($data)) {
+                    redirect('admin/tags');
+                } else {
+                    die('Something wrong');
+                }
+            } else {
+                $this->view('admin/addtag', $data);
+            }
+        } else {
+            $data = [
+                'name_tag' => '',
+            ];
+
+            $this->view('admin/addtag', $data);
+        }
+    }
+
+    public function updatetag($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $data = [
+                'id_tag' => $id,
+                'name_tag' => trim($_POST['name_tag'])
+            ];
+
+            if (!empty($data['name_tag'])) {
+                $this->currentModel->updateTag($data);
+                redirect('admin/tags');
+            }
+        } else {
+            $tags = $this->currentModel->getTagById($id);
+            $data = [
+                'id_tag' => $tags->id_tag,
+                'name_tag' => $tags->name_tag,
+            ];
+
+            $this->view('admin/updatetag', $data);
+        }
+    }
+
+    public function deletetag($id)
+    {
+        if (!empty($id)) {
+            $this->currentModel->deleteTag($id);
+            redirect('admin/tags');
+        } else {
+            redirect('admin/tags');
+        }
+    }
+
 }
