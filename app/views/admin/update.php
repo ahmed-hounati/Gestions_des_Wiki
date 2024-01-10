@@ -1,4 +1,4 @@
-<?php require APPROOT . '/views/inc/header.php'; ?>
+<?php require APPROOT . '/views/admin/header.php'; ?>
 
 <div class="bg-white p-8 rounded-lg mt-28 shadow-md w-80 md:w-96 mx-auto ">
     <h1 class="text-2xl font-semibold mb-4">Update Category</h1>

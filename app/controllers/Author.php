@@ -9,6 +9,10 @@ class Author extends Controller
             redirect('users/login');
         }
 
+        if (($_SESSION['role'] !== 'author')) {
+            redirect('users/login');
+        }
+
         $this->currentModel = $this->model('Authors');
     }
 

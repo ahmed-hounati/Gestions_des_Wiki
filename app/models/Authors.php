@@ -19,14 +19,6 @@ class Authors
         return $row;
     }
 
-    public function getTagByWikiId($data)
-    {
-        $this->db->query('SELECT * FROM wiki_tag WHERE wiki_id = :id');
-        $this->db->bind(':id', $data['wiki_id']);
-        $row = $this->db->fetch();
-        return $row;
-    }
-
     public function getWikiById($id)
     {
         $this->db->query('SELECT * FROM wikis WHERE wiki_id = :id');

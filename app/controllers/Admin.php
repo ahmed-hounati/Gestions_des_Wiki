@@ -8,6 +8,9 @@ class Admin extends Controller
         if (!isLoggedIn()) {
             redirect('users/login');
         }
+        if (($_SESSION['role'] !== 'admin')) {
+            redirect('users/login');
+        }
 
         $this->currentModel = $this->model('Admins');
     }

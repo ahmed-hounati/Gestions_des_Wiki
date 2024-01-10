@@ -1,5 +1,5 @@
 <?php
-require APPROOT . '/views/inc/header.php'; ?>
+require APPROOT . '/views/admin/header.php'; ?>
 <div class="bg-white p-8 rounded-lg mt-28 shadow-md w-80 md:w-96 mx-auto ">
     <h1 class="text-2xl font-semibold mb-4">Add Tag</h1>
     <form action="<?php echo URLROOT; ?>/admin/addtag" method="post">

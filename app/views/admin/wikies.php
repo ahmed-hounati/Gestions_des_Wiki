@@ -1,4 +1,4 @@
-<?php require APPROOT . '/views/inc/header.php'; ?>
+<?php require APPROOT . '/views/admin/header.php'; ?>
 
 <?php foreach ($data['wikies'] as $wiki): ?>
     <div class="max-w-2xl mx-auto mt-4 px-4 py-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
@@ -10,7 +10,9 @@
                 <?php echo $wiki->category_name; ?>
             </span>
             <a class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-gray-600 rounded cursor-pointer hover:bg-gray-500"
-                tabindex="0" role="button"><?php echo $wiki->name_tag; ?></a>
+                tabindex="0" role="button">
+                <?php echo $wiki->name_tag; ?>
+            </a>
         </div>
 
         <div class="mt-2">

@@ -16,7 +16,7 @@
             <div class="flex items-center gap-4 space-x-4">
                 <a href="<?php echo URLROOT; ?>/pages" class="hover:text-gray-400">Category</a>
                 <a href="<?php echo URLROOT; ?>/pages/wikies" class="hover:text-gray-400">Wikis</a>
-                <a href="<?php echo URLROOT; ?>/users/login" class="hover:text-gray-400">Login</a>
+                <a href="<?php echo URLROOT; ?>/users/index" class="hover:text-gray-400">Login</a>
                 <a href="<?php echo URLROOT; ?>/users/register" class="hover:text-gray-400">Sign Up</a>
             </div>
         </div>
@@ -53,7 +53,7 @@
                 </span>
             </div>
             <div class="flex flex-col md:flex-row justify-between items-center mb-4">
-                <a href="<?php echo URLROOT; ?>/users/login" class="text-blue-500 mb-2 md:mb-0">Login?</a>
+                <a href="<?php echo URLROOT; ?>/users/index" class="text-blue-500 mb-2 md:mb-0">Login?</a>
                 <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Sign Up</button>
             </div>
         </form>

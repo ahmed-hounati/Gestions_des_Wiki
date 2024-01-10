@@ -1,4 +1,4 @@
-<?php require APPROOT . '/views/inc/header.php'; ?>
+<?php require APPROOT . '/views/admin/header.php'; ?>
 
 <div class="container mx-auto mt-8 flex flex-wrap gap-4">
     <?php foreach ($data['tags'] as $tag): ?>
