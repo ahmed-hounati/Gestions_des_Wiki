@@ -40,7 +40,10 @@ class Admins
         $this->db->query('UPDATE categories SET category_name = :category_name WHERE category_id = :category_id');
         $this->db->bind(':category_id', $data['category_id']);
         $this->db->bind(':category_name', $data['category_name']);
-        $this->db->execute();
+        if ($this->db->execute()) {
+            return true;
+        } else
+            return false;
     }
 
     public function getCategoryById($id)
@@ -55,7 +58,10 @@ class Admins
     {
         $this->db->query('DELETE FROM categories WHERE category_id = :category_id');
         $this->db->bind(':category_id', $id);
-        $this->db->execute();
+        if ($this->db->execute()) {
+            return true;
+        } else
+            return false;
     }
 
     public function getWikies()
@@ -109,14 +115,20 @@ class Admins
         $this->db->query('UPDATE tags SET name_tag = :name_tag WHERE id_tag = :id');
         $this->db->bind(':name_tag', $data['name_tag']);
         $this->db->bind(':id', $data['id_tag']);
-        $this->db->execute();
+        if ($this->db->execute()) {
+            return true;
+        } else
+            return false;
     }
 
     public function deleteTag($id)
     {
         $this->db->query('DELETE FROM tags WHERE id_tag = :id');
         $this->db->bind(':id', $id);
-        $this->db->execute();
+        if ($this->db->execute()) {
+            return true;
+        } else
+            return false;
     }
 
 }

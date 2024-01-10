@@ -75,7 +75,8 @@ class Authors
 
     public function lastInsertId()
     {
-        return $lastInsertId = $this->db->lastInsertId();
+        $lastInsertId = $this->db->lastInsertId();
+        return $lastInsertId;
     }
 
     public function updateWiki($data)

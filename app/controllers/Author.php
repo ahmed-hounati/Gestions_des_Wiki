@@ -16,14 +16,13 @@ class Author extends Controller
         $this->currentModel = $this->model('Authors');
     }
 
-    public function dashboard()
+    public function index()
     {
         $wikies = $this->currentModel->getWikies();
-
         $data = [
             'wikies' => $wikies,
         ];
-        $this->view('author/dashboard', $data);
+        $this->view('author', $data);
     }
 
     public function addWiki()
@@ -33,7 +32,6 @@ class Author extends Controller
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $categories = $this->currentModel->getCategories();
             $tags = $this->currentModel->getTags();
-            // $wiki_id = $this->currentModel->lastInsertId();
             $data = [
                 'author_id' => $_SESSION['user_id'],
                 'categories' => $categories,
@@ -48,7 +46,7 @@ class Author extends Controller
             if (!empty($data['author_id']) && !empty($data['title']) && !empty($data['content']) && !empty($data['category_id']) && !empty($data['tag_id'])) {
 
                 if ($this->currentModel->addWiki($data)) {
-                    redirect('author/dashboard');
+                    redirect('author');
                 } else {
                     die('Something wrong');
                 }
@@ -88,7 +86,7 @@ class Author extends Controller
 
             if (!empty($data['title']) && !empty($data['content'])) {
                 $this->currentModel->updateWiki($data);
-                redirect('author/dashboard');
+                redirect('author');
             }
         } else {
             $wiki = $this->currentModel->getWikiById($id);
