@@ -15,13 +15,13 @@ class Admin extends Controller
         $this->currentModel = $this->model('Admins');
     }
 
-    public function dashboard()
+    public function index()
     {
         $categories = $this->currentModel->getCategories();
         $data = [
             'categories' => $categories
         ];
-        $this->view('admin/dashboard', $data);
+        $this->view('admin', $data);
     }
 
     public function add()
@@ -41,7 +41,7 @@ class Admin extends Controller
                     $this->view('admin/add', $data);
                 } else {
                     $this->currentModel->addCategories($data);
-                    redirect('admin/dashboard');
+                    redirect('admin');
                 }
             }
         } else {
@@ -73,7 +73,7 @@ class Admin extends Controller
                     $this->view('admin/update', $data);
                 } else {
                     $this->currentModel->updateCategorie($data);
-                    redirect('admin/dashboard');
+                    redirect('admin');
                 }
             }
         } else {
@@ -93,9 +93,9 @@ class Admin extends Controller
     {
         if (!empty($id)) {
             $this->currentModel->deleteCategory($id);
-            redirect('admin/dashboard');
+            redirect('admin');
         } else {
-            redirect('admin/dashboard');
+            redirect('admin');
         }
     }
 

@@ -14,7 +14,7 @@
         <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <h1 class="text-2xl font-semibold mb-4 md:mb-0">WIKI</h1>
             <div class="flex items-center gap-4 space-x-4">
-                <a href="<?php echo URLROOT; ?>/admin/dashboard" class="hover:text-gray-400">Category</a>
+                <a href="<?php echo URLROOT; ?>/admin" class="hover:text-gray-400">Category</a>
                 <a href="<?php echo URLROOT; ?>/admin/tags" class="hover:text-gray-400">Tags</a>
                 <a href="<?php echo URLROOT; ?>/admin/wikies" class="hover:text-gray-400">Wikis</a>
                 <a href="<?php echo URLROOT; ?>/users/logout" class="hover:text-gray-400">Logout</a>
