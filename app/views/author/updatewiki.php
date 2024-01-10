@@ -1,6 +1,4 @@
-<?php
-require APPROOT . '/views/inc/header.php';
-?>
+<?php require APPROOT . '/views/author/header.php'; ?>
 <div class="bg-white p-8 rounded-lg mt-28 shadow-md w-full md:w-96 mx-auto">
     <h1 class="text-2xl font-semibold mb-4">Update Wiki</h1>
     <form action="<?php echo URLROOT; ?>/author/updatewiki/<?php echo $data['wiki_id']; ?>" method="post">

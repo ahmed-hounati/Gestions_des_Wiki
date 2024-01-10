@@ -1,6 +1,6 @@
 <?php
 
-require APPROOT . '/views/inc/header.php';
+require APPROOT . '/views/author/header.php';
 
 ?>
 <div class="bg-white p-8 rounded-lg mt-28 shadow-md w-full md:w-96 mx-auto">
