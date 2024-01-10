@@ -15,8 +15,9 @@ class Author extends Controller
     public function dashboard()
     {
         $wikies = $this->currentModel->getWikies();
+
         $data = [
-            'wikies' => $wikies
+            'wikies' => $wikies,
         ];
         $this->view('author/dashboard', $data);
     }
@@ -27,15 +28,21 @@ class Author extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             $categories = $this->currentModel->getCategories();
+            $tags = $this->currentModel->getTags();
+            // $wiki_id = $this->currentModel->lastInsertId();
             $data = [
                 'author_id' => $_SESSION['user_id'],
                 'categories' => $categories,
                 'title' => trim($_POST['title']),
                 'content' => trim($_POST['content']),
-                'category_id' => trim($_POST['category_id'])
+                'category_id' => trim($_POST['category_id']),
+                'tags' => $tags,
+                'tag_id' => trim($_POST['id_tag']),
             ];
 
-            if (!empty($data['author_id']) && !empty($data['title']) && !empty($data['content']) && !empty($data['category_id'])) {
+
+            if (!empty($data['author_id']) && !empty($data['title']) && !empty($data['content']) && !empty($data['category_id']) && !empty($data['tag_id'])) {
+
                 if ($this->currentModel->addWiki($data)) {
                     redirect('author/dashboard');
                 } else {
@@ -46,8 +53,10 @@ class Author extends Controller
             }
         } else {
             $categories = $this->currentModel->getCategories();
+            $tags = $this->currentModel->getTags();
             $data = [
                 'categories' => $categories,
+                'tags' => $tags,
                 'title' => '',
                 'content' => '',
                 'author_id' => '',

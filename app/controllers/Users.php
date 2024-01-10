@@ -153,14 +153,29 @@ class Users extends Controller
         $_SESSION['email'] = $user->email;
         $_SESSION['role'] = $user->role;
 
-        $redirectUrl = ($_SESSION['role'] === 'admin') ? 'admin/dashboard' : 'author/dashboard';
+        $role = $_SESSION['role'];
+
+        switch ($role) {
+            case 'admin':
+                $redirectUrl = 'admin/dashboard';
+                break;
+            case 'author':
+                $redirectUrl = 'author/dashboard';
+                break;
+            default:
+                $redirectUrl = 'pages/wikies';
+                break;
+        }
+
         redirect($redirectUrl);
+
     }
 
     public function logout()
     {
         unset($_SESSION['user_id']);
         unset($_SESSION['email']);
+        unset($_SESSION['role']);
         session_destroy();
         redirect('users/login');
     }

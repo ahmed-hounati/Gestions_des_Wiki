@@ -6,8 +6,10 @@ require APPROOT . '/views/inc/header.php'; ?>
         <div class="mb-4">
             <label for="name_tag" class="block text-gray-600">Tag name :</label>
             <input type="text" id="name_tag" name="name_tag"
-                class="border rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-blue-300">
+                class="border rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-blue-300 <?php echo (!empty($data['name_tag_err'])) ? 'is-invalid' : ''; ?>"
+                value="<?php echo $data['name_tag']; ?>">
             <span class="invalid-feedback">
+                <?php echo $data['name_tag_err']; ?>
             </span>
         </div>
         <div class="flex flex-col md:flex-row justify-between items-center mb-4">

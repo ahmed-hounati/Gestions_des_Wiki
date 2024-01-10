@@ -1,5 +1,7 @@
 <?php
+
 require APPROOT . '/views/inc/header.php';
+
 ?>
 <div class="bg-white p-8 rounded-lg mt-28 shadow-md w-full md:w-96 mx-auto">
     <h1 class="text-2xl font-semibold mb-4">Add Wiki</h1>
@@ -20,8 +22,7 @@ require APPROOT . '/views/inc/header.php';
         </div>
         <div class="mb-4">
             <label for="category" class="block text-gray-600">Category:</label>
-            <select id="category" name="category_id" 
-                class="border rounded w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 py-2 px-3 focus:outline-none focus:ring
+            <select id="category" name="category_id" class="border rounded w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 py-2 px-3 focus:outline-none focus:ring
                 focus:border-blue-300">
                 <?php foreach ($data['categories'] as $category): ?>
                     <option value="<?php echo $category->category_id; ?>">
@@ -29,8 +30,19 @@ require APPROOT . '/views/inc/header.php';
                     </option>
                 <?php endforeach; ?>
             </select>
-            <span class="invalid-feedback"></span>
         </div>
+        <div class="mb-4">
+            <label for="tag" class="block text-gray-600">Tag:</label>
+            <select id="id_tag" name="id_tag" class="border rounded w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 py-2 px-3 focus:outline-none focus:ring
+                focus:border-blue-300">
+                <?php foreach ($data['tags'] as $tag): ?>
+                    <option value="<?php echo $tag->id_tag; ?>">
+                        <?php echo $tag->name_tag; ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
 
 
         <div class="flex flex-col md:flex-row justify-between items-center mb-4">

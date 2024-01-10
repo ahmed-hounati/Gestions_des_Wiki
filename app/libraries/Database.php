@@ -35,6 +35,11 @@ class Database
         $this->stmt = $this->pdo->prepare($sql);
     }
 
+    public function lastInsertId()
+    {
+        return $this->pdo->lastInsertId();
+    }
+
     public function bind($param, $value, $type = null)
     {
 
@@ -86,5 +91,20 @@ class Database
     public function rowCount()
     {
         return $this->stmt->rowCount();
+    }
+
+    public function beginTransaction()
+    {
+        return $this->pdo->beginTransaction();
+    }
+
+    public function commit()
+    {
+        return $this->pdo->commit();
+    }
+
+    public function rollBack()
+    {
+        return $this->pdo->rollBack();
     }
 }

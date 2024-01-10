@@ -6,8 +6,10 @@ require APPROOT . '/views/inc/header.php'; ?>
         <div class="mb-4">
             <label for="category_name" class="block text-gray-600">Categorie name :</label>
             <input type="text" id="category_name" name="category_name"
-                class="border rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-blue-300">
+                class="border rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-blue-300 <?php echo (!empty($data['category_name_err'])) ? 'is-invalid' : ''; ?>"
+                value="<?php echo $data['category_name']; ?>">
             <span class="invalid-feedback">
+                <?php echo $data['category_name_err']; ?>
             </span>
         </div>
         <div class="flex flex-col md:flex-row justify-between items-center mb-4">
