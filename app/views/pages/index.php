@@ -1,25 +1,42 @@
 <?php
-require APPROOT . '/views/author/header.php';
+require APPROOT . '/views/pages/header.php';
 ?>
 
-<div class="container mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-    <?php foreach ($data['wikies'] as $wiki): ?>
-        <div class="bg-white p-4 rounded shadow-md w-full">
-            <h2 class="text-lg font-semibold mb-2">
-                <?php echo $wiki->title; ?>
-            </h2>
-            <p class="text-gray-600">
+<?php foreach ($data['wikies'] as $wiki): ?>
+    <div class="max-w-2xl mx-auto mt-4 mb-4 px-4 py-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
+        <div class="flex items-center justify-between">
+            <span class="text-sm font-light text-gray-600 dark:text-gray-400">
                 <?php echo $wiki->creation_date; ?>
+            </span>
+            <span class="text-sm font-light text-gray-600 dark:text-gray-400">
+                <?php echo $wiki->category_name; ?>
+            </span>
+            <span
+                class="px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 transform bg-gray-600 rounded hover:bg-gray-500">
+                <?php echo $wiki->tags; ?>
+            </span>
+        </div>
+
+        <div class="mt-2">
+            <p
+                class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">
+                <?php echo $wiki->title; ?>
             </p>
-            <p class="text-gray-600">
+            <p class="mt-2 text-gray-600 dark:text-gray-300">
                 <?php echo $wiki->content; ?>
             </p>
-            <div class="mt-4">
-                <a href="#" class="text-blue-500">Read More</a>
+        </div>
+
+        <div class="flex items-center justify-between mt-4">
+            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline" tabindex="0" role="link">Read
+                more</a>
+
+            <div class="flex items-center">
+                <a class="font-bold text-gray-700 cursor-pointer dark:text-gray-200" tabindex="0" role="link"></a>
             </div>
         </div>
-    <?php endforeach; ?>
-</div>
+    </div>
+<?php endforeach; ?>
 
 </body>
 

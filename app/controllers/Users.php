@@ -154,13 +154,13 @@ class Users extends Controller
 
         switch ($role) {
             case 'admin':
-                $redirectUrl = 'admin/dashboard';
+                $redirectUrl = 'admin';
                 break;
             case 'author':
-                $redirectUrl = 'author/dashboard';
+                $redirectUrl = 'author';
                 break;
             default:
-                $redirectUrl = 'pages/wikies';
+                $redirectUrl = 'pages';
                 break;
         }
 

@@ -22,7 +22,7 @@ class Author extends Controller
         $data = [
             'wikies' => $wikies,
         ];
-        $this->view('author', $data);
+        $this->view('author/index', $data);
     }
 
     public function addWiki()

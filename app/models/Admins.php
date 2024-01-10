@@ -66,12 +66,14 @@ class Admins
 
     public function getWikies()
     {
-        $this->db->query('SELECT tags.name_tag, categories.category_name , wikis.* FROM wikis 
-        INNER JOIN categories ON categories.category_id = wikis.category_id
-        INNER JOIN wiki_tag ON wikis.wiki_id = wiki_tag.wiki_id
-        INNER JOIN tags ON tags.id_tag = wiki_tag.tag_id');
-        $wikies = $this->db->fetchAll();
-        return $wikies;
+        $this->db->query('SELECT wikis.*, categories.category_name, GROUP_CONCAT(tags.name_tag) AS tags
+        FROM wikis
+        LEFT JOIN categories ON wikis.category_id = categories.category_id
+        LEFT JOIN wiki_tag ON wikis.wiki_id = wiki_tag.wiki_id
+        LEFT JOIN tags ON wiki_tag.tag_id = tags.id_tag
+        GROUP BY wikis.wiki_id');
+        $row = $this->db->fetchAll();
+        return $row;
     }
 
     public function getTags()

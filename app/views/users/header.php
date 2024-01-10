@@ -15,7 +15,7 @@
             <h1 class="text-2xl font-semibold mb-4 md:mb-0">WIKI</h1>
             <div class="flex items-center gap-4 space-x-4">
                 <a href="<?php echo URLROOT; ?>/pages/wikies" class="hover:text-gray-400">Wikis</a>
-                <a href="<?php echo URLROOT; ?>/users/index" class="hover:text-gray-400">Login</a>
+                <a href="<?php echo URLROOT; ?>/users" class="hover:text-gray-400">Login</a>
                 <a href="<?php echo URLROOT; ?>/users/register" class="hover:text-gray-400">Sign Up</a>
             </div>
         </div>

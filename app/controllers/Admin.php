@@ -21,7 +21,7 @@ class Admin extends Controller
         $data = [
             'categories' => $categories
         ];
-        $this->view('admin', $data);
+        $this->view('admin/index', $data);
     }
 
     public function add()

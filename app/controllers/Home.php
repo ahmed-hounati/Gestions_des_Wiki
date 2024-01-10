@@ -14,7 +14,7 @@ class Home extends Controller
         $data = [
             'wikies' => $wikies
         ];
-        $this->view('pages', $data);
+        $this->view('pages/index', $data);
     }
 
 }
