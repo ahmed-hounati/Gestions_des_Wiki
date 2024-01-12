@@ -29,21 +29,24 @@ class Author extends Controller
     {
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
             $categories = $this->currentModel->getCategories();
             $tags = $this->currentModel->getTags();
+            $encoded_string = $_POST['selected_tag_id'];
+            $decoded_string = json_decode(html_entity_decode($encoded_string));
             $data = [
                 'author_id' => $_SESSION['user_id'],
                 'categories' => $categories,
                 'title' => trim($_POST['title']),
                 'content' => trim($_POST['content']),
-                'category_id' => trim($_POST['category_id']),
-                'tags' => $tags,
-                'tag_id' => trim($_POST['id_tag']),
+                'category_id' => $_POST['category_id'],
+                'tag_id' => $decoded_string,
             ];
+            
+            
 
 
-            if (!empty($data['author_id']) && !empty($data['title']) && !empty($data['content']) && !empty($data['category_id']) && !empty($data['tag_id'])) {
+            if (!empty($data['author_id']) && !empty($data['title']) && !empty($data['content']) && !empty($data['category_id'])) {
 
                 if ($this->currentModel->addWiki($data)) {
                     redirect('author');

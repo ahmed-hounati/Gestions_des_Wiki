@@ -8,16 +8,19 @@
             </h2>
             <div class="flex justify-between mt-4">
                 <a href="<?php echo URLROOT; ?>/admin/update/<?php echo $category->category_id; ?>"
-                    class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Update</a>
+                    class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"><i
+                        class="fa-solid fa-pen-clip fa-xl"></i></a>
                 <a href="<?php echo URLROOT; ?>/admin/delete/<?php echo $category->category_id; ?>"
-                    class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600">Delete</a>
+                    class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"><i
+                        class="fa-solid fa-trash fa-xl"></i></a>
             </div>
         </div>
     <?php endforeach; ?>
 </div>
 
 <a href="<?php echo URLROOT; ?>/admin/add"
-    class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 fixed bottom-4 right-4">Add</a>
+    class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 fixed bottom-4 right-4"><i
+        class="fa-solid fa-plus fa-xl"></i></a>
 
 
 

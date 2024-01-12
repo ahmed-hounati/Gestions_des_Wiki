@@ -49,7 +49,7 @@ class Users extends Controller
                 } else {
                     $data['password_err'] = 'password incorrect';
 
-                    $this->view('users', $data);
+                    $this->view('users/index', $data);
                 }
             } else {
                 // Load view with errors

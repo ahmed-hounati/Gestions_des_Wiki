@@ -55,17 +55,18 @@ class Authors
 
             $wikiId = $this->db->lastInsertId();
 
-            $this->db->query('INSERT INTO wiki_tag (wiki_id, tag_id) VALUES (:wiki_id, :tag_id)');
-            $this->db->bind(':wiki_id', $wikiId); // Use the last inserted ID
-            $this->db->bind(':tag_id', $data['tag_id']);
-            $this->db->execute();
+            foreach ($data['tag_id'] as $tag_id) {
+                $this->db->query('INSERT INTO wiki_tag (wiki_id, tag_id) VALUES (:wiki_id, :tag_id)');
+                $this->db->bind(':wiki_id', $wikiId);
+                $this->db->bind(':tag_id', $tag_id);
+                $this->db->execute();
+            }
 
             $this->db->commit();
 
             return true;
 
         } catch (PDOException $e) {
-            // If any query fails, roll back the transaction
             $this->db->rollBack();
             echo "Transaction failed: " . $e->getMessage();
             return false;

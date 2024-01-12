@@ -8,7 +8,7 @@ require APPROOT . '/views/admin/header.php'; ?>
             <input type="text" id="category_name" name="category_name"
                 class="border rounded w-full py-2 px-3 focus:outline-none focus:ring focus:border-blue-300 <?php echo (!empty($data['category_name_err'])) ? 'is-invalid' : ''; ?>"
                 value="<?php echo $data['category_name']; ?>">
-            <span class="invalid-feedback">
+            <span class="text-red-600">
                 <?php echo $data['category_name_err']; ?>
             </span>
         </div>
