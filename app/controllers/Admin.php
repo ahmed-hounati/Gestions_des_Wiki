@@ -193,4 +193,25 @@ class Admin extends Controller
         }
     }
 
+    public function dashboard()
+    {
+
+        $totalWikis = $this->currentModel->getTotalWikis();
+        $mostProlificAuthor = $this->currentModel->getMostProlificAuthor();
+        $totalTags = $this->currentModel->getTotalTags();
+        $totalAuthors = $this->currentModel->getTotalAuthors();
+        $totalCategories = $this->currentModel->getTotalCategories();
+        $mostUsedCategory = $this->currentModel->getMostUsedCategory();
+        $data = [
+            'totalWikis' => $totalWikis,
+            'mostProlificAuthor' => $mostProlificAuthor,
+            'totalTags' => $totalTags,
+            'totalAuthors' => $totalAuthors,
+            'totalCategories' => $totalCategories,
+            'mostUsedCategory' => $mostUsedCategory,
+        ];
+        $this->view('admin/dashboard', $data);
+    }
+
+
 }

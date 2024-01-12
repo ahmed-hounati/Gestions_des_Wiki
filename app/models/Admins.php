@@ -133,4 +133,52 @@ class Admins
             return false;
     }
 
+    public function getTotalWikis()
+    {
+        $this->db->query('SELECT COUNT(*) as totalWikis FROM wikis');
+        $totalWikis = $this->db->fetch();
+        return $totalWikis;
+    }
+
+    public function getMostProlificAuthor()
+    {
+        $this->db->query('SELECT username, COUNT(wikis.author_id) as wikiCount
+        FROM wikis
+        JOIN users ON wikis.author_id = users.user_id
+        GROUP BY wikis.author_id
+        ORDER BY wikiCount DESC
+        LIMIT 1');
+
+        return $this->db->fetch();
+    }
+
+    public function getTotalTags()
+    {
+        $this->db->query('SELECT COUNT(*) as totalTags FROM tags');
+        return $totalTags = $this->db->fetch();
+    }
+
+    public function getTotalAuthors()
+    {
+        $this->db->query('SELECT COUNT(user_id) as totalAuthors FROM users');
+        return $totalAuthors = $this->db->fetch();
+    }
+
+    public function getTotalCategories()
+    {
+        $this->db->query('SELECT COUNT(*) as totalCategories FROM categories');
+        return $totalCategories = $this->db->fetch();
+    }
+
+    public function getMostUsedCategory()
+    {
+        $this->db->query('SELECT categories.category_name, COUNT(wikis.category_id) as categoryCount
+        FROM wikis
+        JOIN categories ON wikis.category_id = categories.category_id
+        GROUP BY wikis.category_id
+        ORDER BY categoryCount DESC
+        LIMIT 1');
+        return $this->db->fetch();
+    }
+
 }
