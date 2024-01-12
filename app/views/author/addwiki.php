@@ -33,7 +33,7 @@ require APPROOT . '/views/author/header.php';
             <label class="block text-lg font-semibold mb-2 text-black" for="grid-state-tags">
                 Choose Your Tags
             </label>
-            <div class="relative">
+            <div class="relative m-4">
                 <select name="tagname"
                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-state-tags">
@@ -49,7 +49,7 @@ require APPROOT . '/views/author/header.php';
         <input type="hidden" id="selected_tag_id" name="selected_tag_id" value="">
         <div id="selected-tag-names"></div>
         <div class="flex flex-col md:flex-row justify-between items-center mb-4">
-            <button class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Add Wiki</button>
+            <button class="bg-blue-500 text-white m-4 py-2 px-4 rounded hover:bg-blue-600">Add Wiki</button>
         </div>
     </form>
 </div>

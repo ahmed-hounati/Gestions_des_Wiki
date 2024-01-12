@@ -18,7 +18,6 @@
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
-
     </div>
 
     <div class="mt-2">
@@ -48,7 +47,7 @@
                 <a href="<?php echo URLROOT; ?>/author/deleteWiki/<?php echo $data['wiki']->wiki_id; ?>"
                     class="font-bold text-gray-700 cursor-pointer dark:text-gray-200"><i
                         class="fa-solid fa-trash fa-xl"></i></a>
-            </div> vbn,;
+            </div>
         </div>
     <?php endif; ?>
 
