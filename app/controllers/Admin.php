@@ -27,7 +27,7 @@ class Admin extends Controller
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
             $data = [
                 'category_name' => trim($_POST['category_name']),
                 'category_name_err' => '',
@@ -57,7 +57,7 @@ class Admin extends Controller
     public function update($id)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
             $data = [
                 'category_id' => $id,
                 'category_name' => trim($_POST['category_name']),
@@ -121,7 +121,7 @@ class Admin extends Controller
     public function addtag()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
             $data = [
                 'name_tag' => trim($_POST['name_tag']),
                 'name_tag_err' => '',
@@ -153,7 +153,7 @@ class Admin extends Controller
     public function updatetag($id)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
             $data = [
                 'id_tag' => $id,
                 'name_tag' => trim($_POST['name_tag']),

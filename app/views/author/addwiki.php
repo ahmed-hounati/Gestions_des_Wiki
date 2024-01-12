@@ -1,7 +1,5 @@
 <?php
-
 require APPROOT . '/views/author/header.php';
-
 ?>
 <div class="bg-white p-8 rounded-lg mt-28 shadow-md w-full md:w-96 mx-auto">
     <h1 class="text-2xl font-semibold mb-4">Add Wiki</h1>
@@ -39,7 +37,7 @@ require APPROOT . '/views/author/header.php';
                 <select name="tagname"
                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-state-tags">
-                    <option value="">Sélectionnez un tag</option>
+                    <option value="">Select a tag</option>
                     <?php foreach ($data['tags'] as $tag): ?>
                         <option value="<?= $tag->id_tag; ?>">
                             <?= $tag->name_tag; ?>

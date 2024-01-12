@@ -27,6 +27,7 @@
         }
 
         function getTagNameById(tagId) {
+            // Fonction pour récupérer le nom du tag à partir du tableau de données des tags
             var tag = <?php echo json_encode($data['tags']); ?>;
             for (var i = 0; i < tag.length; i++) {
                 if (tag[i].id_tag == tagId) {

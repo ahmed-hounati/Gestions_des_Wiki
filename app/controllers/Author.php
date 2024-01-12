@@ -42,10 +42,6 @@ class Author extends Controller
                 'category_id' => $_POST['category_id'],
                 'tag_id' => $decoded_string,
             ];
-            
-            
-
-
             if (!empty($data['author_id']) && !empty($data['title']) && !empty($data['content']) && !empty($data['category_id'])) {
 
                 if ($this->currentModel->addWiki($data)) {
@@ -72,31 +68,53 @@ class Author extends Controller
         }
     }
 
+    public function show($id)
+    {
+        $wiki = $this->currentModel->getWiki($id);
+        $data = [
+            'wiki' => $wiki,
+        ];
+        $this->view('author/show', $data);
+    }
+
     public function updatewiki($id)
     {
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
             $categories = $this->currentModel->getCategories();
+            $tags = $this->currentModel->getTags();
+            $encoded_string = $_POST['selected_tag_id'];
+            $decoded_string = json_decode(html_entity_decode($encoded_string));
             $data = [
-                'author_id' => $_SESSION['user_id'],
                 'wiki_id' => $id,
+                'author_id' => $_SESSION['user_id'],
                 'categories' => $categories,
                 'title' => trim($_POST['title']),
                 'content' => trim($_POST['content']),
-                'category_id' => trim($_POST['category_id'])
+                'category_id' => $_POST['category_id'],
+                'tag_id' => $decoded_string,
             ];
+            if (!empty($data['author_id']) && !empty($data['title']) && !empty($data['content']) && !empty($data['category_id'])) {
 
-
-            if (!empty($data['title']) && !empty($data['content'])) {
-                $this->currentModel->updateWiki($data);
-                redirect('author');
+                if ($this->currentModel->updateWiki($data)) {
+                    redirect('author');
+                } else {
+                    die('Something wrong');
+                }
+            } else {
+                $this->view('author/updatewiki', $data);
             }
         } else {
-            $wiki = $this->currentModel->getWikiById($id);
             $categories = $this->currentModel->getCategories();
+            $tags = $this->currentModel->getTags();
+            $selectedTags = $this->currentModel->getSelectedTags($id);
+            $wiki = $this->currentModel->getWiki($id);
             $data = [
-                'categories' => $categories,
                 'wiki_id' => $id,
+                'categories' => $categories,
+                'selectedTags' => $selectedTags,
+                'tags' => $tags,
                 'title' => $wiki->title,
                 'content' => $wiki->content,
                 'author_id' => $wiki->author_id,
@@ -104,6 +122,17 @@ class Author extends Controller
             ];
 
             $this->view('author/updatewiki', $data);
+        }
+    }
+
+
+    public function deleteWiki($id)
+    {
+        if (!empty($id)) {
+            $this->currentModel->deleteWiki($id);
+            redirect('author');
+        } else {
+            redirect('author');
         }
     }
 
