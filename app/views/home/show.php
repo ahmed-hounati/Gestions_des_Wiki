@@ -1,4 +1,4 @@
-<?php require APPROOT . '/views/author/header.php'; ?>
+<?php require APPROOT . '/views/home/header.php'; ?>
 
 <div class="max-w-2xl mx-auto mt-4 mb-4 px-4 py-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
     <div class="flex items-center justify-between">
@@ -36,24 +36,8 @@
             <?php echo $data['wiki']->content; ?>
         </p>
     </div>
-    <?php if ($data['wiki']->author_id == $_SESSION['user_id']): ?>
-        <div class="flex items-center justify-between mt-4">
-            <div class="flex">
-                <a href="<?php echo URLROOT; ?>/author/updateWiki/<?php echo $data['wiki']->wiki_id; ?>"
-                    class="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"><i
-                        class="fa-solid fa-pen-clip fa-xl"></i></a>
-            </div>
-            <div>
-                <a href="<?php echo URLROOT; ?>/author/deleteWiki/<?php echo $data['wiki']->wiki_id; ?>"
-                    class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"><i
-                        class="fa-solid fa-trash fa-xl"></i></a>
-            </div>
-        </div>
-    <?php endif; ?>
 
 </div>
-<a href="<?php echo URLROOT; ?>/author/addwiki"
-    class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 fixed bottom-4 right-4">Add wiki</a>
 </body>
 
 </html>

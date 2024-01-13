@@ -213,5 +213,13 @@ class Admin extends Controller
         $this->view('admin/dashboard', $data);
     }
 
+    public function show($id)
+    {
+        $wiki = $this->currentModel->getWiki($id);
+        $data = [
+            'wiki' => $wiki,
+        ];
+        $this->view('admin/show', $data);
+    }
 
 }

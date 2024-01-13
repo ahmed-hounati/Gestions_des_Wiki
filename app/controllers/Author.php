@@ -41,7 +41,15 @@ class Author extends Controller
                 'content' => trim($_POST['content']),
                 'category_id' => $_POST['category_id'],
                 'tag_id' => $decoded_string,
+                'title_err' => '',
+                'content_err' => '',
             ];
+            if (empty($data['title'])) {
+                $data['title_err'] = 'enter ur title';
+            }
+            if (empty($data['content'])) {
+                $data['content_err'] = 'enter ur content';
+            }
             if (!empty($data['author_id']) && !empty($data['title']) && !empty($data['content']) && !empty($data['category_id'])) {
 
                 if ($this->currentModel->addWiki($data)) {
@@ -61,7 +69,9 @@ class Author extends Controller
                 'title' => '',
                 'content' => '',
                 'author_id' => '',
-                'category_id' => ''
+                'category_id' => '',
+                'title_err' => '',
+                'content_err' => '',
             ];
 
             $this->view('author/addwiki', $data);

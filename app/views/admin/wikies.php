@@ -27,13 +27,10 @@
                 class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">
                 <?php echo $wiki->title; ?>
             </p>
-            <p class="mt-2 text-gray-600 dark:text-gray-300">
-                <?php echo $wiki->content; ?>
-            </p>
         </div>
 
         <div class="flex items-center justify-between mt-4">
-            <a href="<?php echo URLROOT; ?>/author/show/<?php echo $wiki->wiki_id ?>"
+            <a href="<?php echo URLROOT; ?>/admin/show/<?php echo $wiki->wiki_id ?>"
                 class="text-blue-600 dark:text-blue-400 hover:underline">Read
                 more</a>
             <div class="flex items-center">

@@ -27,9 +27,6 @@
                 class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">
                 <?php echo $wiki->title; ?>
             </p>
-            <p class="mt-2 text-gray-600 dark:text-gray-300">
-                <?php echo $wiki->content; ?>
-            </p>
         </div>
 
         <div class="flex items-center justify-between mt-4">

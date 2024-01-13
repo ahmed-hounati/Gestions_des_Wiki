@@ -1,4 +1,4 @@
-<?php require APPROOT . '/views/author/header.php'; ?>
+<?php require APPROOT . '/views/admin/header.php'; ?>
 
 <div class="max-w-2xl mx-auto mt-4 mb-4 px-4 py-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
     <div class="flex items-center justify-between">
@@ -52,8 +52,6 @@
     <?php endif; ?>
 
 </div>
-<a href="<?php echo URLROOT; ?>/author/addwiki"
-    class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 fixed bottom-4 right-4">Add wiki</a>
 </body>
 
 </html>

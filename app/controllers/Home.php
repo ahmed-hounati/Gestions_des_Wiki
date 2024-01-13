@@ -10,11 +10,11 @@ class Home extends Controller
 
     public function index()
     {
-        $wikies = $this->currentModel->getWikies();
+        $wikies = $this->currentModel->Wikies();
         $data = [
             'wikies' => $wikies
         ];
-        $this->view('pages/index', $data);
+        $this->view('home/index', $data);
     }
 
 
@@ -48,4 +48,12 @@ class Home extends Controller
         }
     }
 
+    public function show($id)
+    {
+        $wiki = $this->currentModel->getWiki($id);
+        $data = [
+            'wiki' => $wiki,
+        ];
+        $this->view('home/show', $data);
+    }
 }
