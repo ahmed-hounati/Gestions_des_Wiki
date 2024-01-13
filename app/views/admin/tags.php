@@ -22,6 +22,4 @@
     class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 fixed bottom-4 right-4"><i
         class="fa-solid fa-plus fa-xl"></i></a>
 
-</body>
-
-</html>
+        <?php require APPROOT . '/views/admin/footer.php'; ?>

@@ -17,3 +17,5 @@ require APPROOT . '/views/admin/header.php'; ?>
         </div>
     </form>
 </div>
+
+<?php require APPROOT . '/views/admin/footer.php'; ?>

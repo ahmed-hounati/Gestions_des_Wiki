@@ -38,6 +38,6 @@
     </div>
 
 </div>
-</body>
-
-</html>
+<?php
+require APPROOT . '/views/home/footer.php';
+?>

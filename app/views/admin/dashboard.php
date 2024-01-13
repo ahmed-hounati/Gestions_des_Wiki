@@ -1,4 +1,4 @@
-<?php require APPROOT . '/views/admin/header.php'; 
+<?php require APPROOT . '/views/admin/header.php';
 ?>
 
 <div class="container mx-auto mt-8">

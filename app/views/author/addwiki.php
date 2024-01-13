@@ -1,7 +1,7 @@
 <?php
 require APPROOT . '/views/author/header.php';
 ?>
-<div class="bg-white p-8 rounded-lg mt-28 shadow-md w-full md:w-96 mx-auto">
+<div class="bg-white p-8 rounded-lg shadow-md w-full md:w-96 mx-auto">
     <h1 class="text-2xl font-semibold mb-4">Add Wiki</h1>
     <form action="<?php echo URLROOT; ?>/author/addwiki" method="post">
         <div class="mb-4">

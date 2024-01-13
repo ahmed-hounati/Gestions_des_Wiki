@@ -42,6 +42,6 @@ require APPROOT . '/views/home/header.php';
     </div>
 <?php endforeach; ?>
 
-</body>
-
-</html>
+<?php
+require APPROOT . '/views/home/footer.php';
+?>

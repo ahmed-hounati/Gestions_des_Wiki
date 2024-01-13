@@ -64,6 +64,6 @@ require APPROOT . '/views/users/header.php';
 
     </div>
 </div>
-</body>
-
-</html>
+<?php
+require APPROOT . '/views/users/footer.php';
+?>

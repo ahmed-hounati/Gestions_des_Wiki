@@ -42,6 +42,4 @@
 
 </div>
 
-</body>
-
-</html>
+<?php require APPROOT . '/views/admin/footer.php'; ?>

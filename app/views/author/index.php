@@ -40,7 +40,8 @@
     </div>
 <?php endforeach; ?>
 <a href="<?php echo URLROOT; ?>/author/addwiki"
-    class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 fixed bottom-4 right-4">Add wiki</a>
+    class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 fixed bottom-4 right-4"><i
+        class="fa-solid fa-plus fa-xl"></i></a>
 
 </body>
 
