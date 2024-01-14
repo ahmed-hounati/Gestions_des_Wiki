@@ -54,6 +54,4 @@
 </div>
 <a href="<?php echo URLROOT; ?>/author/addwiki"
     class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 fixed bottom-4 right-4">Add wiki</a>
-</body>
-
-</html>
+    <?php require APPROOT . '/views/footer/header.php'; ?>

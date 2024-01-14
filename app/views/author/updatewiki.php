@@ -72,13 +72,11 @@
 
             selectedTagIds.forEach(function (tagId) {
                 var tagName = getTagNameById(tagId);
-                // Fonction pour récupérer le nom du tag
                 var tag = document.createElement("span");
                 tag.className = "selected-tag";
                 tag.innerHTML = "<span class='bg-blue-500 text-white p-1 rounded-md m-1'>" + tagName + "</span><button class='text-red-500' data-tag-id=\"" + tagId + "\">Remove</button>";
                 tagsContainer.appendChild(tag);
 
-                // Attach the click event to the Remove button
                 var removeButton = tag.querySelector("button");
                 removeButton.addEventListener("click", removeTag);
             });
@@ -106,7 +104,6 @@
             }
         }
 
-        // Event listener for the select element
         var selectElement = document.getElementById("grid-state-tags");
         selectElement.addEventListener("change", function () {
             var selectedTagId = selectElement.value;
@@ -119,4 +116,4 @@
 
 </script>
 
-</html>
+<?php require APPROOT . '/views/author/footer.php'; ?>
