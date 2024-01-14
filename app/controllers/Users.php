@@ -28,22 +28,19 @@ class Users extends Controller
                 $data['email_err'] = 'Please enter ur email';
             }
 
-            // Validate Password
-            if (empty($data['password'])) {
-                $data['password_err'] = 'Please enter ur password';
-            }
-
-
             if ($this->currentModel->findUserEmail($data['email'])) {
             } else {
                 $data['email_err'] = 'no user found';
             }
 
+            // Validate Password
+            if (empty($data['password'])) {
+                $data['password_err'] = 'Please enter ur password';
+            }
             // Make sure errors are empty
             if (empty($data['email_err']) && empty($data['password_err'])) {
                 // Validated
                 $loggedInUser = $this->currentModel->login($data['email'], $data['password']);
-
                 if ($loggedInUser) {
                     $this->createUserSession($loggedInUser);
                 } else {

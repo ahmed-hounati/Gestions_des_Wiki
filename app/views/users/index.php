@@ -22,7 +22,7 @@ require APPROOT . '/views/users/header.php';
                     <input id="email" name="email"
                         class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>"
                         type="text" value="<?php echo $data['email']; ?>">
-                    <span class="text-red-600">
+                    <span id="emailError" class="text-red-600">
                         <?php echo $data['email_err']; ?>
                     </span>
                 </div>
@@ -33,7 +33,7 @@ require APPROOT . '/views/users/header.php';
                     <input id="password" name="password"
                         class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>"
                         type="password" value="<?php echo $data['password']; ?>" />
-                    <span class="text-red-600">
+                    <span id="emailError" class="text-red-600">
                         <?php echo $data['password_err']; ?>
                     </span>
                 </div>
