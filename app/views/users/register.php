@@ -21,7 +21,7 @@ require APPROOT . '/views/users/header.php';
                     <input id="username" name="username"
                         class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 <?php echo (!empty($data['username_err'])) ? 'is-invalid' : ''; ?>"
                         type="text" value="<?php echo $data['username']; ?>" />
-                    <span class="text-red-600">
+                    <span id="usernameError" class="text-red-600">
                         <?php echo $data['username_err']; ?>
                     </span>
                 </div>
@@ -32,7 +32,7 @@ require APPROOT . '/views/users/header.php';
                     <input id="email" name="email"
                         class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>"
                         type="text" value="<?php echo $data['email']; ?>">
-                    <span class="text-red-600">
+                    <span id="emailError" class="text-red-600">
                         <?php echo $data['email_err']; ?>
                     </span>
                 </div>
@@ -43,7 +43,7 @@ require APPROOT . '/views/users/header.php';
                     <input id="password" name="password"
                         class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>"
                         type="password" value="<?php echo $data['password']; ?>" />
-                    <span class="text-red-600">
+                    <span id="passwordError" class="text-red-600">
                         <?php echo $data['password_err']; ?>
                     </span>
                 </div>
@@ -64,6 +64,34 @@ require APPROOT . '/views/users/header.php';
 
     </div>
 </div>
+<script>
+    function validateRegistrationForm() {
+        var username = document.getElementById('username').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        document.getElementById('usernameError').innerHTML = '';
+        document.getElementById('emailError').innerHTML = '';
+        document.getElementById('passwordError').innerHTML = '';
+
+        if (username.trim() === '') {
+            document.getElementById('usernameError').innerHTML = 'Username is required';
+            return false;
+        }
+
+        if (email.trim() === '') {
+            document.getElementById('emailError').innerHTML = 'Email is required';
+            return false;
+        }
+
+        if (password.trim() === '') {
+            document.getElementById('passwordError').innerHTML = 'Password is required';
+            return false;
+        }
+
+        return true;
+    }
+</script>
 <?php
 require APPROOT . '/views/users/footer.php';
 ?>
