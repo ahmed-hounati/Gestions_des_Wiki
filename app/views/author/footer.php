@@ -1,60 +1,44 @@
 </body>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var selectedTagIds = [];
+    // Burger menus
+    document.addEventListener('DOMContentLoaded', function () {
+        // open
+        const burger = document.querySelectorAll('.navbar-burger');
+        const menu = document.querySelectorAll('.navbar-menu');
 
-        function updateDisplayedTags() {
-            var tagsContainer = document.getElementById("selected-tag-names");
-            var selectedTagIdInput = document.getElementById("selected_tag_id");
-            tagsContainer.innerHTML = "";
-
-            selectedTagIds.forEach(function (tagId) {
-                var tagName = getTagNameById(tagId);
-                // Fonction pour récupérer le nom du tag
-                var tag = document.createElement("span");
-                tag.className = "selected-tag";
-                tag.innerHTML = "<span class='bg-blue-500 text-white p-1 rounded-md m-1'>" + tagName + "</span><button class='text-red-500' data-tag-id=\"" + tagId + "\">Remove</button>";
-                tagsContainer.appendChild(tag);
-
-                // Attach the click event to the Remove button
-                var removeButton = tag.querySelector("button");
-                removeButton.addEventListener("click", removeTag);
-            });
-
-
-            selectedTagIdInput.value = JSON.stringify(selectedTagIds);
-        }
-
-        function getTagNameById(tagId) {
-            // Fonction pour récupérer le nom du tag à partir du tableau de données des tags
-            var tag = <?php echo json_encode($data['tags']); ?>;
-            for (var i = 0; i < tag.length; i++) {
-                if (tag[i].id_tag == tagId) {
-                    return tag[i].name_tag;
-                }
-            }
-            return "";
-        }
-
-        function removeTag(event) {
-            var tagId = event.target.dataset.tagId;
-            var index = selectedTagIds.indexOf(tagId);
-            if (index !== -1) {
-                selectedTagIds.splice(index, 1);
-                updateDisplayedTags();
+        if (burger.length && menu.length) {
+            for (var i = 0; i < burger.length; i++) {
+                burger[i].addEventListener('click', function () {
+                    for (var j = 0; j < menu.length; j++) {
+                        menu[j].classList.toggle('hidden');
+                    }
+                });
             }
         }
 
-        // Event listener for the select element
-        var selectElement = document.getElementById("grid-state-tags");
-        selectElement.addEventListener("change", function () {
-            var selectedTagId = selectElement.value;
-            if (selectedTagId && !selectedTagIds.includes(selectedTagId)) {
-                selectedTagIds.push(selectedTagId);
-                updateDisplayedTags();
+        // close
+        const close = document.querySelectorAll('.navbar-close');
+        const backdrop = document.querySelectorAll('.navbar-backdrop');
+        if (close.length) {
+            for (var i = 0; i < close.length; i++) {
+                close[i].addEventListener('click', function () {
+                    for (var j = 0; j < menu.length; j++) {
+                        menu[j].classList.toggle('hidden');
+                    }
+                });
             }
-        });
+        }
+
+        if (backdrop.length) {
+            for (var i = 0; i < backdrop.length; i++) {
+                backdrop[i].addEventListener('click', function () {
+                    for (var j = 0; j < menu.length; j++) {
+                        menu[j].classList.toggle('hidden');
+                    }
+                });
+            }
+        }
     });
 
 </script>

@@ -49,19 +49,7 @@
                 <ul>
                     <li class="mb-1">
                         <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                            href="<?php echo URLROOT; ?>/admin">Category</a>
-                    </li>
-                    <li class="mb-1">
-                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                            href="<?php echo URLROOT; ?>/admin/dashboard">Statistics</a>
-                    </li>
-                    <li class="mb-1">
-                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                            href="<?php echo URLROOT; ?>/admin/tags">Tags</a>
-                    </li>
-                    <li class="mb-1">
-                        <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                            href="<?php echo URLROOT; ?>/admin/wikies">Wikies</a>
+                            href="<?php echo URLROOT; ?>/author">Wikies</a>
                     </li>
                 </ul>
             </div>

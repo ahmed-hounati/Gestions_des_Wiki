@@ -53,8 +53,6 @@
         </div>
     </form>
 </div>
-</body>
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var selectedTagIds = [];
@@ -116,4 +114,8 @@
 
 </script>
 
-<?php require APPROOT . '/views/author/footer.php'; ?>
+<?php
+
+require APPROOT . '/views/author/footer.php';
+
+?>
