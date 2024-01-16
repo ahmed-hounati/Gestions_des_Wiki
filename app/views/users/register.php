@@ -14,7 +14,7 @@ require APPROOT . '/views/users/header.php';
                 Welcome to WIKI!
             </p>
 
-            <form action="<?php echo URLROOT; ?>/users/register" method="post">
+            <form action="<?php echo URLROOT; ?>/users/register" method="post" onsubmit="return validateForm()">
                 <div class="mt-4">
                     <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
                         for="username">Username</label>
@@ -65,31 +65,30 @@ require APPROOT . '/views/users/header.php';
     </div>
 </div>
 <script>
-    function validateRegistrationForm() {
-        var username = document.getElementById('username').value;
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
+    function validateForm() {
+        var email = document.getElementById("email").value;
+        var isValid = true;
 
-        document.getElementById('usernameError').innerHTML = '';
-        document.getElementById('emailError').innerHTML = '';
-        document.getElementById('passwordError').innerHTML = '';
-
-        if (username.trim() === '') {
-            document.getElementById('usernameError').innerHTML = 'Username is required';
-            return false;
+        const emailError = document.getElementById("emailError")
+        if (email.trim() === "") {
+            emailError.innerText = "Please enter your emaill" ;
+            isValid = false;
+        } else if (!validateEmail(email)) {
+            emailError.innerText = "Please enter a valid email address";
+            isValid = false;
+        } else {
+            emailError.innerHTML = "";
         }
-
-        if (email.trim() === '') {
-            document.getElementById('emailError').innerHTML = 'Email is required';
+        if (!isValid) {
             return false;
+        } else {
+            return true;
         }
+    }
 
-        if (password.trim() === '') {
-            document.getElementById('passwordError').innerHTML = 'Password is required';
-            return false;
-        }
-
-        return true;
+    function validateEmail(email) {
+        var regex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+        return regex.test(email);
     }
 </script>
 <?php

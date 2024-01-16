@@ -48,7 +48,6 @@ require APPROOT . '/views/home/header.php';
 <script>
     $("#default-search").keyup(function () {
         var input = $(this).val();
-
         if (input != "") {
             // alert(input);
             const fetchUrl = "<?php echo URLROOT . '/home/search_wiki'; ?>";

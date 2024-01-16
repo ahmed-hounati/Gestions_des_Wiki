@@ -15,7 +15,7 @@ require APPROOT . '/views/users/header.php';
                 Welcome back!
             </p>
 
-            <form action="<?php echo URLROOT; ?>/users" method="post">
+            <form action="<?php echo URLROOT; ?>/users" method="post" onsubmit="return validateForm()">
                 <div class="mt-4">
                     <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200"
                         for="email">Email</label>
@@ -33,7 +33,7 @@ require APPROOT . '/views/users/header.php';
                     <input id="password" name="password"
                         class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 <?php echo (!empty($data['password_err'])) ? 'is-invalid' : ''; ?>"
                         type="password" value="<?php echo $data['password']; ?>" />
-                    <span id="emailError" class="text-red-600">
+                    <span id="passwordError" class="text-red-600">
                         <?php echo $data['password_err']; ?>
                     </span>
                 </div>
@@ -51,6 +51,34 @@ require APPROOT . '/views/users/header.php';
     </div>
 </div>
 </div>
+</body>
+<script>
+    function validateForm() {
+        var email = document.getElementById("email").value;
+        var isValid = true;
+
+        const emailError = document.getElementById("emailError")
+        if (email.trim() === "") {
+            emailError.innerText = "Please enter your emaill";
+            isValid = false;
+        } else if (!validateEmail(email)) {
+            emailError.innerText = "Please enter a valid email address";
+            isValid = false;
+        } else {
+            emailError.innerHTML = "";
+        }
+        if (!isValid) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function validateEmail(email) {
+        var regex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+        return regex.test(email);
+    }
+</script>
 
 <?php
 require APPROOT . '/views/users/footer.php';

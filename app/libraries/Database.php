@@ -35,10 +35,7 @@ class Database
         $this->stmt = $this->pdo->prepare($sql);
     }
 
-    public function lastInsertId()
-    {
-        return $this->pdo->lastInsertId();
-    }
+
 
     public function bind($param, $value, $type = null)
     {
@@ -69,13 +66,17 @@ class Database
         return $this->stmt->execute();
     }
 
+    public function lastInsertId()
+    {
+        return $this->pdo->lastInsertId();
+    }
+
     //fetch data
 
     public function fetchAll()
     {
         $this->stmt->execute();
         $results = $this->stmt->fetchAll(PDO::FETCH_OBJ);
-
         return $results;
     }
 
@@ -83,7 +84,6 @@ class Database
     {
         $this->stmt->execute();
         $result = $this->stmt->fetch(PDO::FETCH_OBJ);
-
         return $result;
     }
 
