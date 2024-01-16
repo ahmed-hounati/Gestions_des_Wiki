@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Dashboard</title>
 </head>
 
@@ -61,6 +65,17 @@
                 </div>
             </div>
         </nav>
+    </div>
+
+
+    <div class="container mx-auto p-4">
+        <div class="flex items-center">
+            <input id="default-search" type="search" name="search" placeholder="Search"
+                class="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none w-full">
+            <button class="bg-blue-500 text-white py-2 px-4 ml-2 rounded hover:bg-blue-600">
+                Search
+            </button>
+        </div>
     </div>
 </body>
 

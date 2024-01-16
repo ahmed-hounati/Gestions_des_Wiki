@@ -222,4 +222,14 @@ class Admin extends Controller
         $this->view('admin/show', $data);
     }
 
+    public function archive($id)
+    {
+        if (!empty($id)) {
+            $this->currentModel->archiveWiki($id);
+            redirect('admin/wikies');
+        } else {
+            redirect('admin/wikies');
+        }
+    }
+
 }
