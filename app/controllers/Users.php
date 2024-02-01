@@ -11,11 +11,9 @@ class Users extends Controller
     }
     public function index()
     {
-        // Check for POST
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
 
-            // Init data
             $data = [
                 'email' => trim($_POST['email']),
                 'password' => trim($_POST['password']),
@@ -23,7 +21,6 @@ class Users extends Controller
                 'password_err' => '',
             ];
 
-            // Validate Email
             if (empty($data['email'])) {
                 $data['email_err'] = 'Please enter ur email';
             }
@@ -33,13 +30,11 @@ class Users extends Controller
                 $data['email_err'] = 'no user found';
             }
 
-            // Validate Password
             if (empty($data['password'])) {
                 $data['password_err'] = 'Please enter ur password';
             }
-            // Make sure errors are empty
             if (empty($data['email_err']) && empty($data['password_err'])) {
-                // Validated
+
                 $loggedInUser = $this->currentModel->login($data['email'], $data['password']);
                 if ($loggedInUser) {
                     $this->createUserSession($loggedInUser);
@@ -49,7 +44,7 @@ class Users extends Controller
                     $this->view('users/index', $data);
                 }
             } else {
-                // Load view with errors
+
                 $this->view('users/index', $data);
             }
         } else {

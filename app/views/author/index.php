@@ -8,7 +8,8 @@
                 <span class="text-sm font-light text-gray-600 dark:text-gray-400">
                     <?php echo $wiki->creation_date; ?>
                 </span>
-                <span class="text-sm font-light text-gray-600 dark:text-gray-400">
+                <span
+                    class="text-xl font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline">
                     <?php echo $wiki->category_name; ?>
                 </span>
                 <?php if (is_array($wiki->tags) || (is_string($wiki->tags) && !empty($wiki->tags))):

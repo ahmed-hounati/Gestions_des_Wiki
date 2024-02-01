@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/admin/header.php'; ?>
 <h1 class="text-3xl font-semibold mb-2 ml-32">Tags :</h1>
-<div class="container mx-auto mt-8 flex flex-wrap gap-4">
+<div class="container px-10 mt-8 flex flex-wrap gap-4">
     <?php foreach ($data['tags'] as $tag): ?>
         <div class="bg-white p-4 rounded shadow-md w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mx-2">
             <h2 class="text-lg font-semibold mb-2">

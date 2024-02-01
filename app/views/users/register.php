@@ -71,7 +71,7 @@ require APPROOT . '/views/users/header.php';
 
         const emailError = document.getElementById("emailError")
         if (email.trim() === "") {
-            emailError.innerText = "Please enter your emaill" ;
+            emailError.innerText = "Please enter your email" ;
             isValid = false;
         } else if (!validateEmail(email)) {
             emailError.innerText = "Please enter a valid email address";

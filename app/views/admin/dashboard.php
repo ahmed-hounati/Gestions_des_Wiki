@@ -2,9 +2,9 @@
 ?>
 
 <div class="container mx-auto mt-8">
-    <h1 class="text-3xl font-bold mb-4">Dashboard</h1>
+    <h1 class="text-3xl font-bold ml-10 mb-4">Dashboard</h1>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 mx-10 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <div class="bg-white p-4 rounded shadow">
             <h2 class="text-xl font-semibold mb-2">Total Wikis</h2>
             <p class="text-gray-700">
@@ -13,7 +13,7 @@
         </div>
 
         <div class="bg-white p-4 rounded shadow">
-            <h2 class="text-xl font-semibold mb-2">Most Prolific Author</h2>
+            <h2 class="text-xl font-semibold mb-2">Most Profile Author</h2>
             <p class="text-gray-700">
                 <?php echo $data['mostProlificAuthor']->username; ?>
             </p>

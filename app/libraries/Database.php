@@ -29,7 +29,6 @@ class Database
             $this->pdo = null;
         }
     }
-
     public function query($sql)
     {
         $this->stmt = $this->pdo->prepare($sql);
